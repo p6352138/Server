@@ -1,0 +1,23 @@
+Time:2018-05-02 19:41:39:311-Trace>>OnInit error:ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6379 ---> System.Net.Sockets.SocketException: Connection refused
+  at System.Net.Sockets.Socket.Connect (System.Net.IPAddress[] addresses, System.Int32 port) [0x000c3] in /Users/builder/data/lanes/5533/mono-mac-sdk/external/bockbuild/builds/mono-x64/mcs/class/referencesource/System/net/System/Net/Sockets/Socket.cs:1150 
+  at System.Net.Sockets.Socket.Connect (System.String host, System.Int32 port) [0x00000] in /Users/builder/data/lanes/5533/mono-mac-sdk/external/bockbuild/builds/mono-x64/mcs/class/System/System.Net.Sockets/Socket.cs:844 
+  at ServiceStack.Redis.RedisNativeClient.Connect () [0x00046] in <5db8e0987aec4fac873d7c9828980d56>:0 
+   --- End of inner exception stack trace ---
+  at ServiceStack.Redis.RedisNativeClient.Connect () [0x001e1] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket () [0x00054] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.SendCommand (System.Byte[][] cmdWithBinaryArgs) [0x00000] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.SendExpectCode (System.Byte[][] cmdWithBinaryArgs) [0x00000] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.Watch (System.String[] keys) [0x0002a] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.ProcessTrans (ServiceStack.Redis.RedisClient client, System.String[] watchKeys, System.Func`1[TResult] processFunc, System.Action`1[T] transFunc, System.Action`2[T1,T2] errorFunc) [0x00001] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Framework/ZyGames.Framework/Redis/RedisConnectionPool.cs:356 
+  at ZyGames.Framework.Redis.RedisConnectionPool+<>c__DisplayClass24_0.<ProcessTrans>b__0 (ServiceStack.Redis.RedisClient client) [0x00015] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Framework/ZyGames.Framework/Redis/RedisConnectionPool.cs:340 
+  at ZyGames.Framework.Redis.RedisConnectionPool.Process (System.Action`1[T] func, ZyGames.Framework.Redis.RedisPoolSetting setting) [0x00013] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Framework/ZyGames.Framework/Redis/RedisConnectionPool.cs:495 
+  at ZyGames.Framework.Redis.RedisConnectionPool.ProcessTrans (System.String[] watchKeys, System.Func`2[T,TResult] processFunc, System.Action`1[T] transFunc, System.Action`2[T1,T2] errorFunc) [0x0002a] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Framework/ZyGames.Framework/Redis/RedisConnectionPool.cs:338 
+  at ZyGames.Framework.Redis.RedisConnectionPool.ProcessTrans (System.String watchKeys, System.Func`2[T,TResult] processFunc, System.Action`1[T] transFunc) [0x00001] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Framework/ZyGames.Framework/Redis/RedisConnectionPool.cs:325 
+  at ZyGames.Framework.Redis.RedisConnectionPool.InitRedisInfo () [0x0000e] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Framework/ZyGames.Framework/Redis/RedisConnectionPool.cs:140 
+  at ZyGames.Framework.Redis.RedisConnectionPool.Initialize (ZyGames.Framework.Redis.RedisPoolSetting setting, ZyGames.Framework.Common.Serialization.ICacheSerializer serializer) [0x00052] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Framework/ZyGames.Framework/Redis/RedisConnectionPool.cs:128 
+  at ZyGames.Framework.Redis.RedisConnectionPool.Initialize (ZyGames.Framework.Common.Serialization.ICacheSerializer serializer) [0x00001] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Framework/ZyGames.Framework/Redis/RedisConnectionPool.cs:108 
+  at ZyGames.Framework.Game.Runtime.GameEnvironment.Start (ZyGames.Framework.Game.Runtime.EnvironmentSetting setting, ZyGames.Framework.Cache.Generic.CacheSetting cacheSetting) [0x0007a] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Middleware/ZyGames.Framework.Game/Runtime/GameEnvironment.cs:183 
+  at ZyGames.Framework.Game.Runtime.GameEnvironment.Start (ZyGames.Framework.Game.Runtime.EnvironmentSetting setting) [0x0001a] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Middleware/ZyGames.Framework.Game/Runtime/GameEnvironment.cs:162 
+  at ZyGames.Framework.Game.Runtime.RuntimeHost.OnStart () [0x00002] in /Users/z/Documents/unity3d 战斗卡牌《变身吧主公》客户端+服务器源码/Scut-master/Source/Middleware/ZyGames.Framework.Game/Runtime/RuntimeHost.cs:96 
+
+

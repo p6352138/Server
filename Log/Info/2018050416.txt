@@ -1,0 +1,11 @@
+///////////////////////////////////////////////////////////////////////////
+
+    //   ) )  //   ) )  //   / / /__  ___/   SCUT 6.7.9.11 (64 bit)
+   ((        //        //   / /    / /       Running in Unix platform
+     \\     //        //   / /    / /        Game: 0   Server: 0
+       ) ) //        //   / /    / /         
+((___ / / ((____/ / ((___/ /    / /                http://www.scutgame.com
+
+16:46:33 Server is starting...
+16:46:33 Server failed to start error:could not connect to redis Instance at 127.0.0.1:6379
+# Server exit command "Ctrl+C" or "Ctrl+Break".
