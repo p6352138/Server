@@ -1,0 +1,54 @@
+Time:2018-05-05 14:45:07:971-Trace>>OnInit error:ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6379 ---> System.Net.Sockets.SocketException: Connection refused
+  at System.Net.Sockets.Socket.Connect (System.Net.IPAddress[] addresses, System.Int32 port) [0x000c3] in <33c5603ad293441aaed2769dd871c706>:0 
+  at System.Net.Sockets.Socket.Connect (System.String host, System.Int32 port) [0x00007] in <33c5603ad293441aaed2769dd871c706>:0 
+  at ServiceStack.Redis.RedisNativeClient.Connect () [0x00046] in <5db8e0987aec4fac873d7c9828980d56>:0 
+   --- End of inner exception stack trace ---
+  at ServiceStack.Redis.RedisNativeClient.Connect () [0x001e1] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket () [0x00054] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.SendCommand (System.Byte[][] cmdWithBinaryArgs) [0x00000] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.SendExpectCode (System.Byte[][] cmdWithBinaryArgs) [0x00000] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.Watch (System.String[] keys) [0x0002a] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.ProcessTrans (ServiceStack.Redis.RedisClient client, System.String[] watchKeys, System.Func`1[TResult] processFunc, System.Action`1[T] transFunc, System.Action`2[T1,T2] errorFunc) [0x00001] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool+<>c__DisplayClass24_0.<ProcessTrans>b__0 (ServiceStack.Redis.RedisClient client) [0x00015] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.Process (System.Action`1[T] func, ZyGames.Framework.Redis.RedisPoolSetting setting) [0x00013] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.ProcessTrans (System.String[] watchKeys, System.Func`2[T,TResult] processFunc, System.Action`1[T] transFunc, System.Action`2[T1,T2] errorFunc) [0x0002a] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.ProcessTrans (System.String watchKeys, System.Func`2[T,TResult] processFunc, System.Action`1[T] transFunc) [0x00001] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.InitRedisInfo () [0x0000e] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.Initialize (ZyGames.Framework.Redis.RedisPoolSetting setting, ZyGames.Framework.Common.Serialization.ICacheSerializer serializer) [0x00052] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.Initialize (ZyGames.Framework.Common.Serialization.ICacheSerializer serializer) [0x00007] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Game.Runtime.GameEnvironment.Start (ZyGames.Framework.Game.Runtime.EnvironmentSetting setting, ZyGames.Framework.Cache.Generic.CacheSetting cacheSetting) [0x00084] in <f34e530bbc234feb9b8cd930c8697c14>:0 
+  at ZyGames.Framework.Game.Runtime.GameEnvironment.Start (ZyGames.Framework.Game.Runtime.EnvironmentSetting setting) [0x0001a] in <f34e530bbc234feb9b8cd930c8697c14>:0 
+  at ZyGames.Framework.Game.Runtime.RuntimeHost.OnStart () [0x00002] in <f34e530bbc234feb9b8cd930c8697c14>:0 
+
+
+Time:2018-05-05 14:48:39:268-Trace>>XmlDataConfigger changed error:System.NullReferenceException: Object reference not set to an instance of an object
+  at System.Collections.Generic.HashSet`1[T].AddIfNotPresent (T value) [0x000a3] in <f84aa906ee264c4a932d8627b3559eb9>:0 
+  at System.Collections.Generic.HashSet`1[T].Add (T item) [0x00000] in <f84aa906ee264c4a932d8627b3559eb9>:0 
+  at ZyGames.Framework.Common.Configuration.DataConfigger.OnWatcherChanged (System.Object sender, System.IO.FileSystemEventArgs e) [0x0000e] in <576c94fec6e144ada3cc18f5a0b93ad8>:0 
+
+
+Time:2018-05-05 14:48:39:268-Trace>>XmlDataConfigger changed error:System.NullReferenceException: Object reference not set to an instance of an object
+  at System.Collections.Generic.HashSet`1[T].AddIfNotPresent (T value) [0x000a3] in <f84aa906ee264c4a932d8627b3559eb9>:0 
+  at System.Collections.Generic.HashSet`1[T].Add (T item) [0x00000] in <f84aa906ee264c4a932d8627b3559eb9>:0 
+  at ZyGames.Framework.Common.Configuration.DataConfigger.OnWatcherChanged (System.Object sender, System.IO.FileSystemEventArgs e) [0x0000e] in <576c94fec6e144ada3cc18f5a0b93ad8>:0 
+
+
+Time:2018-05-05 14:48:39:797-Trace>>ConfigReload error:ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6379 ---> System.Net.Sockets.SocketException: Connection refused
+  at System.Net.Sockets.Socket.Connect (System.Net.IPAddress[] addresses, System.Int32 port) [0x000c3] in <33c5603ad293441aaed2769dd871c706>:0 
+  at System.Net.Sockets.Socket.Connect (System.String host, System.Int32 port) [0x00007] in <33c5603ad293441aaed2769dd871c706>:0 
+  at ServiceStack.Redis.RedisNativeClient.Connect () [0x00046] in <5db8e0987aec4fac873d7c9828980d56>:0 
+   --- End of inner exception stack trace ---
+  at ServiceStack.Redis.RedisNativeClient.Connect () [0x001e1] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket () [0x00054] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.SendCommand (System.Byte[][] cmdWithBinaryArgs) [0x00000] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.SendExpectCode (System.Byte[][] cmdWithBinaryArgs) [0x00000] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ServiceStack.Redis.RedisNativeClient.Watch (System.String[] keys) [0x0002a] in <5db8e0987aec4fac873d7c9828980d56>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.ProcessTrans (ServiceStack.Redis.RedisClient client, System.String[] watchKeys, System.Func`1[TResult] processFunc, System.Action`1[T] transFunc, System.Action`2[T1,T2] errorFunc) [0x00001] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool+<>c__DisplayClass24_0.<ProcessTrans>b__0 (ServiceStack.Redis.RedisClient client) [0x00015] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.Process (System.Action`1[T] func, ZyGames.Framework.Redis.RedisPoolSetting setting) [0x00013] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.ProcessTrans (System.String[] watchKeys, System.Func`2[T,TResult] processFunc, System.Action`1[T] transFunc, System.Action`2[T1,T2] errorFunc) [0x0002a] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.ProcessTrans (System.String watchKeys, System.Func`2[T,TResult] processFunc, System.Action`1[T] transFunc) [0x00001] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.InitRedisInfo () [0x0000e] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+  at ZyGames.Framework.Redis.RedisConnectionPool.OnConfigReload (System.Object sender, ZyGames.Framework.Common.Configuration.ConfigReloadedEventArgs e) [0x00002] in <ef9b22a48b3345e5abe8551ba2b226e2>:0 
+
+
