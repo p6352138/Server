@@ -64,7 +64,7 @@ namespace GameServer.CsScript.Action
             //_relu = 1;
             //Console.WriteLine(SnsManager.CheckPassport(_account));
             //SnsManager.RegisterPassportTest(_account, _password);
-            if (SnsManager.Register(_account, _password))
+            if (SnsManager.Register(_account, _password,""))
             {
                 _relu = 0;
                 Console.WriteLine("注册成功 账号：{0}  密码：{1}", _account, _password);
