@@ -21,61 +21,65 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
-
-using GameServer.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using ZyGames.Framework.Cache.Generic;
+using ZyGames.Framework.Common;
 using ZyGames.Framework.Game.Contract;
 using ZyGames.Framework.Game.Service;
+using GameServer.Model;
 
-namespace GameServer.CsScript.Action
+namespace Game.Script
 {
-    public class Action1000 : BaseStruct
+public class LuaFuncProxy
+{
+    private static LuaFuncProxy instance = new LuaFuncProxy();
+
+    public static LuaFuncProxy GetIntance()
     {
-        private string UserName;
-        private int Score;
+        return instance;
+    }
 
-
-        public Action1000(HttpGet httpGet)
-            : base(1000, httpGet)
-        {
-        }
-
-        public override void BuildPacket()
-        {
-
-        }
-
-        public override bool GetUrlElement()
-        {
-            if (httpGet.GetString("UserName", ref UserName)
-                 && httpGet.GetInt("Score", ref Score))
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public override bool TakeAction()
-        {
-            var cache = new ShareCacheStruct<UserRanking>();
-            var ranking = cache.Find(m => m.UserName == UserName);
-            if (ranking == null)
-            {
-                var user = new GameUser() { UserId = (int)cache.GetNextNo(), NickName = UserName};
-                new PersonalCacheStruct<GameUser>().Add(user);
-                ranking = new UserRanking();
-                ranking.UserID = user.UserId;
-                ranking.UserName = UserName;
-                ranking.Score = Score;
-                cache.Add(ranking);
-            }
-            else
-            {
-                ranking.UserName = UserName;
-                ranking.Score = Score;
-            }
-            return true;
-        }
+    private LuaFuncProxy()
+    {
 
     }
+
+    /// <summary>
+    /// 鑾峰彇Url鍙傛暟
+    /// </summary>
+    /// <param name="actionGetter"></param>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public string GetActionParam(ActionGetter actionGetter, string name)
+    {
+        return actionGetter != null ? actionGetter.GetString(name) : "";
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public UserRanking[] GetUserRankingList()
+    {
+        var cache = new ShareCacheStruct<UserRanking>();
+        var rankingList = cache.FindAll(false);
+        //rankingList = MathUtils.QuickSort<UserRanking>(rankingList, compareTo);
+        //rankingList = rankingList.GetPaging(PageIndex, PageSize, out PageCount);
+        return rankingList.ToArray();
+    }
+
+    private int compareTo(UserRanking x, UserRanking y)
+    {
+        int result = y.Score - x.Score;
+        if (result == 0)
+        {
+            result = y.UserID - x.UserID;
+        }
+        return result;
+    }
+}
 }
